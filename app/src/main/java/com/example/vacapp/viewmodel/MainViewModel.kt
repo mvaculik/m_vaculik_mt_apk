@@ -10,8 +10,7 @@ class MainViewModel : ViewModel() {
     val welcomeMessage: LiveData<String> get() = _welcomeMessage
 
     init {
-        // Inicializujte vaši LiveData zprávou
-        _welcomeMessage.value = "Vítejte v VacApp!"
+        _welcomeMessage.value = "Vítejte v investiční aplikaci!"
     }
 
     // Zde můžete přidat další funkce, jako jsou metody pro načítání dat atd.

@@ -14,20 +14,25 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Inicializace View Bindingu
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Pozorování LiveData z ViewModelu a aktualizace UI
         viewModel.welcomeMessage.observe(this) { message ->
             binding.textView.text = message
         }
 
-        // Nastavení onClickListeneru pomocí View Bindingu
         binding.buttonNext.setOnClickListener {
             val intent = Intent(this, SecondActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPreferences = getSharedPreferences("CurrencyRates", MODE_PRIVATE)
+        val lastSavedCurrency = sharedPreferences.getString("LastSavedCurrency", "CZK") // Načtení poslední uložené měny
+        val savedRate = sharedPreferences.getFloat(lastSavedCurrency, 0f)
+        binding.savedCurrencyRate.text = "Uložený kurz $lastSavedCurrency: $savedRate"
     }
 }

@@ -1,14 +1,30 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:padding="16dp">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Zde můžete přidávat TextView a Button prvky dynamicky -->
     <LinearLayout
         android:id="@+id/currenciesContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <!-- TextViews budou dynamicky přidány sem -->
+        <!-- Dynamické TextViews budou přidány sem -->
     </LinearLayout>
 
+    <!-- Tlačítko Zpět -->
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zpět"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>
 </ScrollView>
+
