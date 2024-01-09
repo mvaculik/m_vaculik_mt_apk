@@ -1,22 +1,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/mainbg">
+    android:layout_height="match_parent">
 
-    <!-- Zatemňující overlay -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#66000000" />
-
-    <!-- Text ve středu -->
     <TextView
+        android:id="@+id/euroRateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WELCOME TO MILLIONAIRES APP"
-        android:textSize="40sp"
-        android:textColor="#FFD700"
-    android:textStyle="bold"
-    android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:text="Euro Rate"
+        android:textColor="#FFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 </FrameLayout>

@@ -15,10 +15,10 @@ class SecondActivity : AppCompatActivity() {
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Zde byste mohli použít viewModel k nahrání dat a pozorování LiveData
-        // Například:
-        // viewModel.someLiveData.observe(this) { data ->
-        //     binding.someTextView.text = data
-        // }
+        // Pozorování LiveData z ViewModelu a aktualizace UI
+        viewModel.euroRate.observe(this) { rate ->
+            // Předpokládám, že máte TextView s ID euroRateText ve vašem layoutu
+            binding.euroRateText.text = "EUR: ${rate.value}"
+        }
     }
 }
