@@ -1,15 +1,14 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/euroRateText"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/currenciesContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Euro Rate"
-        android:textColor="#FFF"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
+        <!-- TextViews budou dynamicky přidány sem -->
+    </LinearLayout>
 
-</FrameLayout>
+</ScrollView>

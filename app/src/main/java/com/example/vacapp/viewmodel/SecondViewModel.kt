@@ -12,19 +12,18 @@ import kotlinx.coroutines.launch
 import com.example.vacapp.model.CurrencyRate
 
 class SecondViewModel : ViewModel() {
-
-    private val _euroRate = MutableLiveData<CurrencyRate>()
-    val euroRate: LiveData<CurrencyRate> = _euroRate
+    private val _currencyRates = MutableLiveData<Map<String, CurrencyRate>>()
+    val currencyRates: LiveData<Map<String, CurrencyRate>> = _currencyRates
 
     init {
         viewModelScope.launch {
             try {
                 val response = RetrofitInstance.api.getLatestRates("EUR")
-                _euroRate.postValue(response.data["EUR"])
-                Log.d("SecondViewModel", "Kurz EUR: ${response.data["EUR"]}")
+                _currencyRates.postValue(response.data)
             } catch (e: Exception) {
-                Log.e("SecondViewModel", "Chyba při získávání kurzu ${RetrofitInstance.api}", e)
+                Log.e("SecondViewModel", "Chyba při získávání kurzů", e)
             }
         }
     }
 }
+
