@@ -26,9 +26,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Přidá observer pro aktuální zůstatek účtu
         viewModel.currentAccountBalance.observe(this) { message ->
             binding.textView.text = message
+        }
+
+        binding.btnShowHistory.setOnClickListener {
+            val intent = Intent(this, ExchangeHistoryActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -45,10 +49,24 @@ class MainActivity : AppCompatActivity() {
             if (amountText.isNotEmpty()) {
                 val amount = amountText.toDouble()
                 val convertedAmount = amount * savedRate
+                val exchangeDetail = "USD/$lastSavedCurrency Rate: ${String.format("%.7f", savedRate)}\n" +
+                        "Amount: ${String.format("%.2f", amount)} USD\n" +
+                        "Total: ${String.format("%.7f", convertedAmount)} $lastSavedCurrency\n" + " "
+
+                saveExchangeDetail(exchangeDetail)
+
                 binding.exchangeResult.text = "${String.format("%.7f", convertedAmount)} $lastSavedCurrency"
             } else {
                 binding.exchangeResult.text = "Zadejte částku"
             }
         }
+    }
+
+    private fun saveExchangeDetail(detail: String) {
+        val sharedPreferences = getSharedPreferences("ExchangeHistory", MODE_PRIVATE)
+        val currentHistory = sharedPreferences.getString("history", "")
+        val newHistory = if (currentHistory.isNullOrEmpty()) detail else "$detail\n$currentHistory"
+
+        sharedPreferences.edit().putString("history", newHistory).apply()
     }
 }

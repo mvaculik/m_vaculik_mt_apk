@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Kolik peněz chcete rozměnit:"
+        android:text="O jak velkou částku chcete přijít:"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/savedCurrencyRate"
         android:layout_marginTop="100dp"
@@ -68,5 +68,17 @@
         android:layout_marginTop="50dp"
         android:textAlignment="center"
         android:textSize="34sp" />
+
+    <Button
+        android:id="@+id/btnShowHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zobrazit historii"
+        android:layout_marginTop="150dp"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/exchangeResult"
+        android:layout_gravity="center_horizontal"/>
+
 
 </RelativeLayout>
