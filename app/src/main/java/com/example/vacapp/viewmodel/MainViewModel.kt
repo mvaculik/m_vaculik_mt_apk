@@ -5,13 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
-    // Příklad LiveData, která uchovává zprávu pro UI
     private val _welcomeMessage = MutableLiveData<String>()
     val welcomeMessage: LiveData<String> get() = _welcomeMessage
 
+    private val _currentAccountBalance = MutableLiveData<String>()
+    val currentAccountBalance: LiveData<String> get() = _currentAccountBalance
+
     init {
-        _welcomeMessage.value = "Vítejte v investiční aplikaci!"
+        _welcomeMessage.value = "Zvolený měnový pár:"
     }
 
-    // Zde můžete přidat další funkce, jako jsou metody pro načítání dat atd.
 }

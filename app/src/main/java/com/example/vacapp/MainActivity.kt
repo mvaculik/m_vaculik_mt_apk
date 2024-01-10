@@ -25,14 +25,30 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SecondActivity::class.java)
             startActivity(intent)
         }
+
+        // Přidá observer pro aktuální zůstatek účtu
+        viewModel.currentAccountBalance.observe(this) { message ->
+            binding.textView.text = message
+        }
     }
 
     override fun onResume() {
         super.onResume()
 
         val sharedPreferences = getSharedPreferences("CurrencyRates", MODE_PRIVATE)
-        val lastSavedCurrency = sharedPreferences.getString("LastSavedCurrency", "CZK") // Načtení poslední uložené měny
+        val lastSavedCurrency = sharedPreferences.getString("LastSavedCurrency", "CZK")
         val savedRate = sharedPreferences.getFloat(lastSavedCurrency, 0f)
-        binding.savedCurrencyRate.text = "Uložený kurz $lastSavedCurrency: $savedRate"
+        binding.savedCurrencyRate.text = "USD/$lastSavedCurrency: ${String.format("%.7f", savedRate)}"
+
+        binding.exchangeButton.setOnClickListener {
+            val amountText = binding.amountToExchange.text.toString()
+            if (amountText.isNotEmpty()) {
+                val amount = amountText.toDouble()
+                val convertedAmount = amount * savedRate
+                binding.exchangeResult.text = "${String.format("%.7f", convertedAmount)} $lastSavedCurrency"
+            } else {
+                binding.exchangeResult.text = "Zadejte částku"
+            }
+        }
     }
 }

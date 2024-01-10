@@ -6,7 +6,7 @@
         android:id="@+id/text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vítejte v VacApp!"
+        android:textSize="18sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"/>
 
@@ -15,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Uložený kurz"
+        android:textSize="20sp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/text_view"
         android:layout_marginTop="20dp"/>
@@ -23,8 +24,49 @@
         android:id="@+id/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Další Stránka"
-        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:text="Změnit měnový pár"
         android:layout_below="@id/savedCurrencyRate"
         android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/currentAccountBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Kolik peněz chcete rozměnit:"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/savedCurrencyRate"
+        android:layout_marginTop="100dp"
+        />
+
+    <EditText
+        android:id="@+id/amountToExchange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Zadejte částku"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/currentAccountBalance"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/exchangeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/amountToExchange"
+        android:text="Vyměnit $" />
+
+    <TextView
+        android:id="@+id/exchangeResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/exchangeButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textAlignment="center"
+        android:textSize="34sp" />
+
 </RelativeLayout>

@@ -8,6 +8,14 @@ android:padding="16dp">
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <!-- Pole pro vyhledávání -->
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Vyhledat měnový pár"
+        android:layout_marginBottom="16dp"/>
+
     <!-- Zde můžete přidávat TextView a Button prvky dynamicky -->
     <LinearLayout
         android:id="@+id/currenciesContainer"
