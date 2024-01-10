@@ -1,17 +1,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/mainbg"
+    android:foregroundTint="#61000000"
     android:gravity="center"
-    android:background="@drawable/mainbg">
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WELCOME TO MILLIONAIRES APP"
-        android:textSize="30sp"
+        android:layout_height="731dp"
+        android:background="#9A000000"
+        android:gravity="center"
+        android:text="THIS IS DEFINITELY NOT SCAM!"
         android:textColor="#FFF"
-        android:textStyle="bold"
-        android:gravity="center" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
